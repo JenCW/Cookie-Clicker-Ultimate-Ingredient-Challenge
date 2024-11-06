@@ -6,77 +6,93 @@
         <title>Document</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
         <link rel="stylesheet" href="/.css/style.css">
-        <script src="/.js/app.js"></script>
+        <script src="/.js/app.js" defer></script>
     </head>
     <body>
         <div class="main-container"> <!-- this is the main container that will hold all the sections of the game-->
 
             <div class="counter-section"> <!-- this is the counter section that will hold the cookie, the timer, the cookie count, the ingredients achieved, the progress bar, and the reset button-->
                 <h2>Cookie Clicker<br>The Ultimate Cookie Challenge</br></h2>
-                <div class="timer">Time Remaining: <span id="time">300</span> seconds</div>
-                <div class="cookie-count">Cookies: <span id="cookieCount">0</span></div>
-                <img class="cookie" src="/assets/images/CookieImages/sugarcookie.png">
+                <div class="timer">Time Remaining: <span id="time">5:00</span></div>
+                <div class="cookie-count">Cookies Clicked: <span id="cookieCount">0</span></div>
+                <img class="cookie-image" id="cookie" src="/assets/images/CookieImages/sugarcookie.png" alt="Cookie Image">
                 <div class="ingredients-achieved">Ingredients Achieved: <ul id="ingredientsList"></ul></div>
-                <div class="progress-bar"><progress id="progress" value="0" max="100"></progress></div>
                 <button class="reset-button" onclick="ResetGame()">Reset</button>
+                <div> coded by Jen</div>
             </div>
 
             <div class="level-up-section">
                 <h2>Level Up!</h2>
-                <div class="clicks-to-next">Clicks to Next Milestone: <span id="clicksNext"><50</span></div><!-- this is the display for the number of clicks needed to reach the next milestone-->
-                <div class="mini-challenge hidden" id="challengePopup">  <!-- this is the mini challenge that will pop up when the player reaches a milestone-->
-                    <p>Answer this question to unlock an ingredient!</p>   <!-- this is the question that will be asked in the mini challenge-->
-                    <div class="challenge-question" id="challengeQuestion"></div> <!-- this is the div that will hold the question-->
-                    <div class="challenge-answers" id="challengeAnswers"></div> <!-- this is the div that will hold the answers to the question-->
-                </div>
+                <div class="clicks-to-next">LEVEL UP CHALLENGE IN: <span id="clicksNext"></br> 50 CLICKS</span></div><!-- this is the display for the number of clicks needed to reach the next milestone-->
+                <!-- Milestone Challenge Popup -->
+                    <div id="challengePopup" class="hidden">
+                        <p id="challengeQuestion">Question will appear here</p>
+                        <button id="option1">Option 1</button>
+                        <button id="option2">Option 2</button>
+                        <button id="option3">Option 3</button>
+                        <button id="option4">Option 4</button>
+                    </div>
             </div>
 
             <div class="store-section">
                 <h2>Ingredient-Store</h2>
                 <div class="ingredients" id="storeItems">
+
                     <div class="ingredient" id="fudge">  <!-- this is the first ingredient that will be displayed in the store-->
-                        <img src="" alt="Fudge">      <!-- this is the image of the ingredient-->
+                        <img src="assets/images/Ingredients/ingr.fudge.png" alt="Fudge">      <!-- this is the image of the ingredient-->
                         <h3>Fudge</h3>
                         <p>Multiply Clicks by 1.2</p>   <!--this is the level up multipler based emk-->
-                        <button onclick="GetIngredient(Fudge)">Get</button>
                     </div>
-                    <div class="ingredient" id="nuts">
-                        <img src="" alt="nuts">
+
+                    <div class="ingredient" id="Nuts">
+                        <img src="assets/images/Ingredients/nuts.png" alt="nuts">
                         <h3>Nuts</h3>
                         <p>Multiply Clicks by 1.6</p>
-                        <button onclick="getIngredient(Nuts)">Get</button>
                     </div>
-                    <div class="ingredient" id="sprinkles">
-                        <img src="" alt="sprinkles">
+
+                    <div class="ingredient" id="Sprinkles">
+                        <img src="assets/images/Ingredients/Ing.sprinkles.png" alt="sprinkles">
                         <h3>Sprinkles</h3>
                         <p>Multiply Clicks by 1.1</p>
-                        <button onclick="getIngredient(Sprinkles)">Get</button>
                     </div>
-                    <div class="ingredient" id="chocholateChips">
-                        <img src="" alt="Chocolate chips">
+
+                    <div class="ingredient" id="ChocChips">
+                        <img src="assets/images/Ingredients/ingr.chocchips.png" alt="Chocolate-chips">
                         <h3>Chocolate-chips</h3>
                         <p>Multiply Clicks by 1.4</p>
-                        <button onclick="getIngredient(Chocolate-chips)">Get</button>
                     </div>
+
                     <div class="ingredient" id="OatmealRaison">
-                        <img src="" alt="Oatmeal-raison">
+                        <img src="assets/images/Ingredients/ingr-oatmeal.png" alt="Oatmeal-raison">
                         <h3>Oatmeal-raison</h3>
                             <p>Multiply Clicks by 1.50</p>
-                        <button onclick="getIngredient(Oatmel)">Get</button>
                     </div>
+
                     <div class="ingredient" id="WhiteChocChips">
-                        <img src="" alt="White-Chocolate-Chips">
+                        <img src="assets/images/Ingredients/ingr.whitechocchips.png" alt="White-Chocolate-Chips">
                         <h3>White-Chocolate-Chips</h3>
                             <p>Multiply Clicks by 1.50</p>
-                        <button onclick="getIngredient(white-Choc-Chips)">Get</button>
                     </div>
+
                     <div class="ingredient" id="MandM">
-                        <img src="" alt="MandM">
+                        <img src="assets/images/Ingredients/Ing.mandm.png" alt="MandM">
                         <h3>MandM</h3>
                             <p>Multiply Clicks by 1.50</p>
-                        <button onclick="getIngredient(MandM)">Get</button>
                     </div>
-                </div> <!-- this is the div that will hold all the ingredients that will be displayed in the store-->
+
+                    <div class="ingredient" id="Flour">
+                        <img src="assets/images/Ingredients/flour.png" alt="Flour">
+                        <h3>Flour</h3>
+                            <p>Multiply Clicks by 1.40</p>
+                    </div>
+
+                    <div class="ingredient" id="Sugar">
+                        <img src="assets/images/Ingredients/ingr.sugar.png" alt="Sugar">
+                        <h3>MandM</h3>
+                            <p>Multiply Clicks by 1.20</p>
+                    </div>
+
+                </div><!-- this is the div that will hold all the ingredients that will be displayed in the store-->
             </div> <!-- this is the div that will hold the store section-->
         </div> <!-- this is the div that will hold the main container-->
     </body>

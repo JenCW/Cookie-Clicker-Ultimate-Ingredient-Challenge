@@ -15,19 +15,22 @@ body {
     line-height: 1.6;
 }
 
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
 /* ==================================
    Main Container
    ================================== */
 
 .main-container {
     display: grid;
-    /* Three equal-width columns */
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 5px;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 100%;
 }
 
 /* ==================================
@@ -35,12 +38,14 @@ body {
    ================================== */
 
 .counter-section, .level-up-section, .store-section {
-    padding: 20px;
+
     text-align: center;
     background-color: #BC6C25;
     border: 6px groove #757575;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(27, 26, 26, 0.4);
+    max-width: 1200px;
+    overflow: hidden;
 }
 
 /* ==================================
@@ -49,55 +54,82 @@ body {
 
 /* Timer */
 .timer {
+    display: inline-block; /* Prevent full-width stretching */
+    padding: 10px;
+    width: 75%;
+    justify-content: center;
+    margin: 0 auto; /* Center them within the section */
     background-color: #FEFAE0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
     border: 2px solid #363636;
     border-radius: 10px;
     box-shadow: 0 5px 9px rgba(63, 19, 19, 0.9);
-    padding: 20px;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    margin-top: 40px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    cursor: default; /* This is telling the computer to keep the cursor as default, so it doesn’t look clickable */
+    overflow: hidden;
 }
 
 /* Cookie Counter */
 .cookie-count {
-
+    display: inline-block; /* Prevent full-width stretching */
+    padding: 10px 20px;
+    width: 80%;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 40px;
     background-color: #FEFAE0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
     border: 2px solid #363636;
     border-radius: 10px;
     box-shadow: 0 5px 9px rgba(63, 19, 19, 0.9);
-    padding: 20px 10px 20px 10px;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    margin-top: 40px;
+    cursor: default;
+    overflow: hidden;
 }
 
 /* Cookie Image */
-.cookie {
-    background-color: #363636;
-    border: 2px solid #FEFAE0;
-    box-shadow: 0 5px 9px rgba(63, 19, 19, 0.9);
-    width: 300px;
-    height: auto;
+.cookie-image {
+    flex-direction: column;
+    padding: 30px;
+    width: 350px; /* Set a fixed width */
+    height: auto; /* Maintain aspect ratio */
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #06dcf8; /* A warm, cookie-like color */
+    border: 8px solid #FEFAE0; /* Adds a cookie-like border */
+    border-radius: 50%; /* Makes the image a circle */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds a drop shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth animation for interactions */
     cursor: pointer;
-    margin-top: 15px;
-    margin-bottom: 15px;
-
+    overflow: hidden;
 }
+
+    /* Hover effect to make the cookie "pop" */
+    .cookie-image:hover {
+        transform: scale(1.1) skew(3deg, 5deg); /*Makes the cookie slightly bigger when hovered*/
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Increases shadow for a lifted effect */
+    }
 
 /* Ingredients Achieved List */
 .ingredients-achieved ul {
     list-style: none;
-    padding: 0;
     margin: 10px 0;
 }
 
 /* Game Progress Bar */
 .progress-bar progress {
-    width: 100%;
+    display: inline-block;
+    width: 75%;
     height: 60px;
+    background-color: #FEFAE0; /* Background for unfilled part */
+    border: 2px solid #363636; /* Border for button look */
+    border-radius: 20px; /* Rounded corners for a button look */
+    box-shadow: 0 5px 9px rgba(63, 19, 19, 0.9); /* Shadow for depth */
+    overflow: hidden; /* Ensures rounded corners apply to inner content */
+    appearance: none; /* Removes default browser styles */
 }
 
 /* Reset Button */
@@ -114,6 +146,8 @@ body {
 
 .reset-button:hover {
     background-color: #0056b3;
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Level-Up Section */
@@ -123,16 +157,30 @@ body {
 }
 
 .clicks-to-next {
+    display: inline-block; /* Prevent full-width stretching */
+    padding: 10px 20px;
+    width: 80%;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    background-color: #09d0f3;
+    font-size: 1.4rem;
     font-weight: bold;
-    margin-bottom: 15px;
+    text-align: center;
+    border: 2px solid #363636;
+    border-radius: 10px;
+    box-shadow: 0 5px 9px rgba(63, 19, 19, 0.9);
+    cursor: default;
+    overflow: hidden;
 }
 
 .mini-challenge {
     padding: 10px;
-    background-color: #fffae6;
-    border: 1px solid #ffecb3;
-    border-radius: 5px;
-    margin-top: 15px;
+    color:white;
+    background-color: #301003;
+    border: 1px solid #fcc30a;
+    border-radius: 15px;
+    margin-top: 25px 15px;
 }
 
 .hidden {
@@ -146,8 +194,8 @@ body {
 }
 
 .ingredient {
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 5px;
+    border: 1px solid #dddddd;
     border-radius: 5px;
     margin-bottom: 10px;
     background-color: #fff;
@@ -170,17 +218,6 @@ body {
     margin-bottom: 10px;
 }
 
-.ingredient button {
-    padding: 5px 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.ingredient button:hover {
-    background-color: #218838;
-}
 
-/* ================
+
