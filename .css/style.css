@@ -9,8 +9,11 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: poppins, sans-serif;
+    /* background-color: #f4f4f4; */
+    background-image: url(assets/images/Misc.Background.Images/Untitled-design2.png);
+    background-size: cover;
+    z-index: 99;
     color: #333;
     line-height: 1.6;
 }
@@ -40,7 +43,7 @@ h2 {
 .counter-section, .level-up-section, .store-section {
 
     text-align: center;
-    background-color: #BC6C25;
+    /* background-color: #bc6b25; */
     border: 6px groove #757575;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(27, 26, 26, 0.4);
@@ -48,13 +51,13 @@ h2 {
     overflow: hidden;
 }
 
-/* ==================================
-   4. Element Specific Styles
-   ================================== */
+/*==================================//
+Element Specific Styles //
+==================================*/
 
-/* Timer */
+
 .timer {
-    display: inline-block; /* Prevent full-width stretching */
+    display: inline-block;
     padding: 10px;
     width: 75%;
     justify-content: center;
@@ -100,7 +103,7 @@ h2 {
     margin-bottom: 25px;
     background-color: #06dcf8; /* A warm, cookie-like color */
     border: 8px solid #FEFAE0; /* Adds a cookie-like border */
-    border-radius: 50%; /* Makes the image a circle */
+    border-radius: 35%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds a drop shadow for depth */
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth animation for interactions */
     cursor: pointer;
@@ -109,7 +112,7 @@ h2 {
 
     /* Hover effect to make the cookie "pop" */
     .cookie-image:hover {
-        transform: scale(1.1) skew(3deg, 5deg); /*Makes the cookie slightly bigger when hovered*/
+        transform: scale(1.1); /*Makes the cookie slightly bigger when hovered*/
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Increases shadow for a lifted effect */
     }
 
@@ -119,18 +122,6 @@ h2 {
     margin: 10px 0;
 }
 
-/* Game Progress Bar */
-.progress-bar progress {
-    display: inline-block;
-    width: 75%;
-    height: 60px;
-    background-color: #FEFAE0; /* Background for unfilled part */
-    border: 2px solid #363636; /* Border for button look */
-    border-radius: 20px; /* Rounded corners for a button look */
-    box-shadow: 0 5px 9px rgba(63, 19, 19, 0.9); /* Shadow for depth */
-    overflow: hidden; /* Ensures rounded corners apply to inner content */
-    appearance: none; /* Removes default browser styles */
-}
 
 /* Reset Button */
 .reset-button {
@@ -145,7 +136,7 @@ h2 {
 }
 
 .reset-button:hover {
-    background-color: #0056b3;
+    background-color: #06d5fa;
     transform: scale(1.1);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
@@ -158,7 +149,7 @@ h2 {
 
 .clicks-to-next {
     display: inline-block; /* Prevent full-width stretching */
-    padding: 10px 20px;
+    padding: 40px;
     width: 80%;
     justify-content: center;
     margin-bottom: 10px;
@@ -182,6 +173,52 @@ h2 {
     border-radius: 15px;
     margin-top: 25px 15px;
 }
+/* Popup container styling */
+
+/* Styling for question text */
+#challengeQuestion {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    Border: 4px solid #00c3ff;
+    border-radius: 15px;
+    background-color: #faf1ba;
+    padding: 10px;
+    box-shadow: #333;
+    }
+
+/* Styling for option buttons */
+#challengePopup button {
+    display: block;
+    width: 65%;
+    margin: 5px auto;
+    padding: 8px;
+    font-size: 1rem;
+    border: 3px solid #080700;
+    border-radius: 6px;
+    background-color: #0db8ec; /* Semi-transparent for readability */
+    color: rgb(10, 0, 0);
+    cursor: pointer;
+}
+
+/* Feedback message styling */
+#feedbackMessage {
+    flex-direction: column;
+    padding: 20px;
+    width: 175px; /* Set a fixed width */
+    height: auto; /* Maintain aspect ratio */
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: #161616;
+    background-color: #faf603; /* Green background for correct answer */
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 5px;
+ /* Hide by default */
+}
+
 
 .hidden {
     display: none;
@@ -195,17 +232,17 @@ h2 {
 
 .ingredient {
     padding: 5px;
-    border: 1px solid #dddddd;
+    border: 1px solid #049bc9;
     border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #fff;
+    margin-bottom: 5px;
+    background-color: #faf3aa;
     text-align: center;
 }
 
 .ingredient img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 10px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
 }
 
 .ingredient h3 {
@@ -215,7 +252,7 @@ h2 {
 
 .ingredient p {
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 

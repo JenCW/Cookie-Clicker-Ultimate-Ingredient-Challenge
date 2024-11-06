@@ -112,6 +112,7 @@ function handleClick() {  // function named "handleClick" that we will use to ad
     }
 
 function showChallengePopup() {
+
         miniChallenge.classList.remove("hidden");
         miniChallenge.style.display = "block";
 
@@ -119,19 +120,66 @@ function showChallengePopup() {
         challengeQuestion.innerText = currentQuestion.question;
 
         currentQuestion.options.forEach((option, index) => {
-            answerButtons[index].innerText = option;
+        answerButtons[index].innerText = option;
    });
 }
+
+function showFeedbackMessage(isCorrect) {
+    const feedbackMessage = document.getElementById("feedbackMessage");
+    const feedbackText = document.getElementById("feedbackText");
+
+    if (isCorrect) {
+        feedbackText.textContent = "CORRECT!";
+        feedbackMessage.style.backgroundColor = "#f1f508"; // Green for correct
+    } else {
+        feedbackText.textContent = "TRY AGAIN!";
+        feedbackMessage.style.backgroundColor = "#dc3545"; // Red for incorrect
+    }
+
+    // Show feedback message
+    feedbackMessage.style.display = "inline-block";
+
+    // Hide feedback message after 2 seconds
+    setTimeout(() => {
+        feedbackMessage.style.display = "none";
+    }, 2000);
+}
+let clickMultiplier = 1;  // Start with a base multiplier
+const ingredientsListDisplay = document.getElementById("ingredientsList");  // Where acquired ingredients are displayed
+
 
 function checkAnswer(selectedAnswer) {
     miniChallenge.classList.add("hidden");  // Hide popup
 
-    if (selectedAnswer === currentQuestion.correctAnswer) {
+    const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
+    showFeedbackMessage(isCorrect); // Show feedback message based on answer
+
+    if (isCorrect) {
         cookieImage.src = currentQuestion.image;  // Update cookie image if answer is correct
     }
 
+// Hide the ingredient from the store
+const ingredientId = currentQuestion.ingredient.toLowerCase();
+document.getElementById(ingredientId).style.display = "none";
+
+// Update the click multiplier
+clickMultiplier *= currentQuestion.multiplier;
+
+        // Add the ingredient to the acquired ingredients list
+        addIngredientToTable(currentQuestion.ingredient, currentQuestion.multiplier);
+    }
+    // Reset milestone counter for the next question
     milestoneCounter = 50;  // Reset milestone counter for next level
+
+// Function to add the acquired ingredient to the ingredients list table
+function addIngredientToTable(ingredient, multiplier) {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${ingredient}: x${multiplier.toFixed(1)} multiplier`;
+    ingredientsListDisplay.appendChild(listItem);
 }
+
+
+// Set up event listeners for each answer button
 answerButtons.forEach((button, index) => {
     button.addEventListener("click", () => checkAnswer(button.innerText));
 });
